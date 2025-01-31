@@ -2,20 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global Reset */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply w-full h-full overflow-x-hidden bg-fixed m-0 p-0 box-border;
+  color: var(--main-color);
+}
+
+/* Base Typography */
+h1 {
+  @apply font-bold text-4xl;
+  font-family: 'Poppins', serif;
+}
+
+h2 {
+  @apply font-semibold text-3xl;
+  font-family: 'Poppins', serif;
+}
+
+h3 {
+  @apply font-medium text-2xl;
+  font-family: 'Poppins', serif;
+}
+
+p {
+  @apply font-light text-lg;
+  font-family: 'Poppins', serif;
+}
+
+/* Links */
+a {
+  @apply text-white transition-colors ease-in-out;
+}
+
+a:hover {
+  @apply text-blue-500;
+}
+
+/* Utility Classes (from your original CSS) */
+.m-none {
+  margin: 0 !important;
+}
+
+.p-none {
+  padding: 0 !important;
+}
+
+.section {
+  @apply opacity-100 translate-y-0 transition ease-out;
+}
+
+.section.animate {
+  opacity: 0.8;
+  transform: translateY(30px);
+}
+
+.section.visible {
+  @apply opacity-100 translate-y-0;
 }

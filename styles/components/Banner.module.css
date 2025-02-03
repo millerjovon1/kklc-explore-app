@@ -1,0 +1,112 @@
+/* Banner Search Styling */
+
+/* Banner Search Styles */
+.bannerSearchContainer {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.bannerSearchBar {
+  width: 100%;
+  padding: 10px;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.bannerSearchBar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.bannerSuggestions {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+  color: black;
+}
+
+.bannerSuggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bannerSuggestions li:hover {
+  background: #f0f0f0;
+}
+
+/* Kklc Title */
+.kklcTitle {
+  display: flex;
+  justify-content: center;
+  background-color: #264653;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+/* Home Title */
+.homeTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100px;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.homeTitle h2 {
+  margin: 0;
+}
+
+.homeTitle p {
+  margin: 0;
+}
+
+/* Home Banner */
+.homeBanner {
+  height: 400px; /* or any desired height */
+  /* For background image with gradient overlay */
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(42, 9, 34, 0.476),
+      rgba(58, 54, 42, 0.787)
+    ),
+    url('/images/banner_img.jpg');
+  background-position: center center;
+  background-size: cover;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .homeBanner {
+    height: 400px;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .homeBanner {
+    height: 400px;
+    background-size: cover;
+  }
+}

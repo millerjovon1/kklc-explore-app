@@ -1,0 +1,47 @@
+.mainGrid {
+  margin: 2% 0;
+  max-width: 80%;
+  width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px; /* Adjust the gap between grid items as needed */
+}
+
+/* Target direct children of mainGrid */
+.mainGrid > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #264653;
+  color: white;
+  border-radius: 50px;
+}
+
+/* Responsive adjustments for mainGrid */
+@media only screen and (max-width: 768px) {
+  .mainGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Adjustments for children on smaller screens */
+@media only screen and (max-width: 768px) {
+  .mainGrid > * {
+    border: 1px solid black;
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mainGrid > * {
+    border: 1px solid black;
+    border-radius: 6px;
+  }
+}

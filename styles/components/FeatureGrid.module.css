@@ -1,0 +1,113 @@
+/* FeatureGrid.module.css */
+
+/* Container for the entire feature section */
+.featureSection {
+  max-width: 90%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Container for each category */
+.featureCategory {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Border bottom for the category title */
+.borderBottom {
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Grid container for the feature cards */
+.featuredGrid {
+  max-width: 80%;
+  width: 100%;
+  text-align: center;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments for the grid */
+@media only screen and (max-width: 1080px) {
+  .featuredGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .featuredGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+}
+
+/* Each feature card */
+.featuredCard {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Overlay that appears over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: 2;
+  border-radius: 8px;
+}
+
+/* Image styling for the card */
+.featCardImg {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 8px;
+  transition: opacity 0.8s ease, filter 0.3s ease;
+  display: block;
+}
+
+/* Responsive adjustment for images */
+@media only screen and (max-width: 780px) {
+  .featCardImg {
+    max-width: 140px;
+    width: 100%;
+  }
+}
+
+/* Text overlay styling */
+.overlayFont {
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Responsive adjustments for overlay font */
+@media only screen and (max-width: 768px) {
+  .overlayFont {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .overlayFont {
+    font-size: 12px;
+    text-align: center;
+  }
+}

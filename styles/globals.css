@@ -1,48 +1,50 @@
+/* styles/global.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global Reset */
+/* Global Reset and Base Styles */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply w-full h-full overflow-x-hidden bg-fixed m-0 p-0 box-border;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   color: var(--main-color);
 }
 
 /* Base Typography */
 h1 {
-  @apply font-bold text-4xl;
+  font-weight: bold;
+  font-size: 2.25rem; /* roughly Tailwind's text-4xl */
   font-family: 'Poppins', serif;
 }
 
 h2 {
-  @apply font-semibold text-3xl;
+  font-weight: 600;
+  font-size: 1.875rem; /* roughly text-3xl */
   font-family: 'Poppins', serif;
 }
 
 h3 {
-  @apply font-medium text-2xl;
+  font-weight: 500;
+  font-size: 1.5rem; /* roughly text-2xl */
   font-family: 'Poppins', serif;
 }
 
 p {
-  @apply font-light text-lg;
+  font-weight: 300;
+  font-size: 1.125rem; /* roughly text-lg */
   font-family: 'Poppins', serif;
 }
 
-/* Links */
-a {
-  @apply text-white transition-colors ease-in-out;
-}
-
-a:hover {
-  @apply text-blue-500;
-}
-
-/* Utility Classes (from your original CSS) */
+/* Global utility classes (for things you want available globally) */
 .m-none {
   margin: 0 !important;
 }
@@ -51,8 +53,11 @@ a:hover {
   padding: 0 !important;
 }
 
+/* Section Animation Example */
 .section {
-  @apply opacity-100 translate-y-0 transition ease-out;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
 }
 
 .section.animate {
@@ -61,5 +66,19 @@ a:hover {
 }
 
 .section.visible {
-  @apply opacity-100 translate-y-0;
+  opacity: 1;
+  transform: translateY(0);
 }
+
+/* Global container */
+.main-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Other global styles as needed... */

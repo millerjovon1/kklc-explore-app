@@ -1,13 +1,16 @@
 import Banner from "@/components/Banner";
 import AboutSection from "@/components/AboutSection";
-import VendorGrid from "@/components/VendorGrid";
+import MonthlyFeatures from "@/components/MonthlyFeatures";
+import Footer  from "@/components/Footer";
+
 
 export default function Home() {
   return (
     <main>
       <Banner />
       <AboutSection />
-      <VendorGrid />
+      <MonthlyFeatures />
+      <Footer />
     </main>
   );
 }

@@ -43,6 +43,17 @@ p {
   font-size: 1.125rem; /* roughly text-lg */
   font-family: 'Poppins', serif;
 }
+a {
+  color: white;
+
+  background-color: transparent;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for color and background color changes */
+}
+
+a:hover {
+  color: #66B2FF; /* Lighter color on hover */
+}
 
 /* Global utility classes (for things you want available globally) */
 .m-none {
@@ -57,7 +68,7 @@ p {
 .section {
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.3s ease-out;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .section.animate {

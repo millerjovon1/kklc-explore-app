@@ -2,6 +2,7 @@
 import React from 'react';
 import { businessesData } from '@/data/businessesData';
 import styles from '@/styles/components/FeatureGrid.module.css';
+import Image from 'next/image';
 
 // Define the categories
 const categories = [
@@ -30,7 +31,8 @@ const FeatureCategory: React.FC<FeatureCategoryProps> = ({ category }) => {
   const businesses = getRandomBusinesses(category.filter);
 
   return (
-    <div className={styles.featureCategory}>
+    <section className="section animate">
+    <div className= {styles.featureCategory}>
       <h3 className={styles.borderBottom}><b>{category.name}</b></h3>
       <div className={styles.featuredGrid}>
         {businesses.map((business) => (
@@ -40,16 +42,19 @@ const FeatureCategory: React.FC<FeatureCategoryProps> = ({ category }) => {
             className={styles.featuredCard}
           >
             <div className={styles.overlay}></div>
-            <img
-              className={styles.featCardImg}
-              src={business.image}
-              alt={business.name}
-            />
+            <Image
+            src={business.image}
+            alt={business.name}
+            width={800}  // Intrinsic width (adjust as needed)
+            height={600} // Intrinsic height (adjust as needed)
+            className={styles.featCardImg}
+          />
             <h3 className={styles.overlayFont}><b>{business.name}</b></h3>
           </a>
         ))}
       </div>
     </div>
+    </section>
   );
 };
 

@@ -1,3 +1,4 @@
+/* Container for the entire main grid */
 .mainGrid {
   margin: 2% 0;
   max-width: 80%;
@@ -16,12 +17,13 @@
   background-color: #264653;
   color: white;
   border-radius: 50px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Added box-shadow */
 }
 
 /* Responsive adjustments for mainGrid */
 @media only screen and (max-width: 768px) {
   .mainGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -36,6 +38,7 @@
   .mainGrid > * {
     border: 1px solid black;
     border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow for smaller screens */
   }
 }
 
@@ -43,5 +46,6 @@
   .mainGrid > * {
     border: 1px solid black;
     border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 }

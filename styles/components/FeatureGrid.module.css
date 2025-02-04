@@ -5,6 +5,8 @@
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
+  margin-top: 6%;
+
 }
 
 /* Container for each category */
@@ -70,7 +72,6 @@
 
 /* Image styling for the card */
 .featCardImg {
-  max-width: 200px;
   width: 100%;
   border-radius: 8px;
   transition: opacity 0.8s ease, filter 0.3s ease;
@@ -80,7 +81,6 @@
 /* Responsive adjustment for images */
 @media only screen and (max-width: 780px) {
   .featCardImg {
-    max-width: 140px;
     width: 100%;
   }
 }

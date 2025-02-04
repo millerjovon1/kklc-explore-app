@@ -1,6 +1,7 @@
 // MainGrid.tsx
-import React from 'react';
-import styles from '@/styles/components/MainGrid.module.css'; // Ensure this file exists
+import React from "react";
+import Link from "next/link";
+import styles from "@/styles/components/MainGrid.module.css";
 
 interface GridLink {
   label: string;
@@ -8,11 +9,11 @@ interface GridLink {
 }
 
 const links: GridLink[] = [
-  { label: "Restaurants", href: "./restaurants.html" },
-  { label: "Shops", href: "./shops.html" },
-  { label: "Health & Beauty", href: "./health_beauty.html" },
-  { label: "Clinics", href: "./clinics.html" },
-  { label: "Other", href: "./other.html" },
+  { label: "Restaurants", href: "/restaurants" },
+  { label: "Shops", href: "/shops" },
+  { label: "Health & Beauty", href: "/health-beauty" },
+  { label: "Clinics", href: "/clinics" },
+  { label: "Other", href: "/other" },
 ];
 
 const MainGrid: React.FC = () => {
@@ -21,9 +22,9 @@ const MainGrid: React.FC = () => {
       {links.map((link) => (
         <section key={link.href} className="section animate">
           <div>
-            <a href={link.href}>
+            <Link href={link.href}>
               <h3>{link.label}</h3>
-            </a>
+            </Link>
           </div>
         </section>
       ))}

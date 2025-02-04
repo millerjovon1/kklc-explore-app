@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import AboutSection from "@/components/AboutSection";
 import MonthlyFeaturesGrid from "@/components/MonthlyFeatureGrid";
 import MainGrid from "@/components/MainGrid";
-import Footer  from "@/components/Footer";
+import EventsSlideshow from "@/components/EventsSlideshow";
 
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
         <AboutSection />
         <MainGrid/>
         <MonthlyFeaturesGrid />
+        <EventsSlideshow/>
       </div>
-      <Footer />
     </main>
   );
 }

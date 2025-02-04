@@ -1,0 +1,264 @@
+/* MemberCard.module.css */
+
+/* Wrapper for all business cards */
+.businessWrapper {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+/* Base business card container */
+.business {
+  width: 100%;
+  margin: 3% auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 15px;
+}
+
+/* Membership variations */
+.premiumBusiness {
+  border: 2px solid #e76f51;
+  background-color: #f1faee;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(231, 111, 81, 0.2);
+}
+.premiumBusiness h2 {
+  color: #e76f51;
+}
+
+.plusBusiness {
+  border: 2px solid #2a9d8f;
+  background-color: #e9f7f5;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(42, 157, 143, 0.2);
+}
+.plusBusiness h2 {
+  color: #2a9d8f;
+}
+
+.standardBusiness {
+  border: 2px solid #264653;
+  background-color: #f4f4f9;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(38, 70, 83, 0.2);
+}
+.standardBusiness h2 {
+  color: #264653;
+}
+
+/* Business Profile */
+.businessProfile {
+  max-width: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.businessImg {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Info section */
+.info {
+  max-width: 56%;
+  width: 100%;
+  flex-grow: 1;
+  text-align: left;
+}
+.storeInfo {
+  display: flex;
+  justify-content: flex-start;
+}
+.storeProfile {
+  max-width: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Owner Profile */
+.ownerProfile {
+  border-radius: 12px;
+  max-width: 40%;
+  width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.ownerImage {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Business Links */
+.businessLinks {
+  flex-grow: 1;
+  max-width: 20%;
+}
+.businessLinks a {
+  color: #2a9d8f;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.businessLinks a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.socialIcons {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  justify-content: center;
+}
+.socialIcons li {
+  display: inline-block;
+}
+.socialIcons li i {
+  font-size: 30px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.socialIcons li i.fa-instagram {
+  color: #e1306c;
+}
+.socialIcons li i.fa-youtube {
+  color: #ff0000;
+}
+.socialIcons li i.fa-tiktok {
+  color: #000000;
+}
+.socialIcons li i.fa-x-twitter {
+  color: #1da1f2;
+}
+
+/* Additional elements */
+.viewMapLink {
+  color: #2a9d8f;
+  text-decoration: underline;
+}
+.phoneLink {
+  color: #2a9d8f;
+  text-decoration: underline;
+}
+
+/* Global element for the scroll animation */
+:global(.section) {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+:global(.section.animate) {
+  opacity: 0.8;
+  transform: translateY(30px);
+}
+:global(.section.visible) {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .business {
+    flex-direction: column; /* Switch to column layout */
+    align-items: center;
+  }
+  .storeInfo{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .businessProfile {
+    max-width: 100%;
+    align-items: center;
+  }
+
+
+
+  .business .info {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .storeInfo {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+
+
+  .ownerProfile {
+    max-width: 100%;
+  }
+
+
+
+  .businessLinks {
+    flex-direction: row;
+    text-align: center;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .businessLinks ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0;
+    justify-content: center;
+
+  }
+
+  /* header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  } */
+}
+
+@media (max-width: 480px) {
+
+
+  .business h2 {
+    font-size: 1.2rem;
+  }
+
+  .business p {
+    font-size: 0.9rem;
+  }
+
+
+  .businessLinks ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0;
+    justify-content: center;
+
+  }
+
+  .businessLinks ul li i {
+    font-size: 24px;
+  }
+
+}

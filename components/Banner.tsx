@@ -3,10 +3,14 @@
 import { FaBars } from "react-icons/fa"; // Mobile menu toggle, if needed
 import SearchBar from "./SearchBar"; // Import the SearchBar component
 import styles from "@/styles/components/Banner.module.css";
+import { useRouter } from "next/navigation"; // Import Next.js router
 
 const Banner: React.FC = () => {
+  const router = useRouter(); // Initialize Next.js router
+
   const handleSuggestionClick = (businessId: number) => {
-    window.location.href = `./show.html?id=${businessId}`; // Redirect to business page
+    // Navigate to dynamic route using router.push
+    router.push(`/business-details/${businessId}`);
   };
 
   return (

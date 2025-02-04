@@ -1,10 +1,16 @@
-const AboutSection = () => {
+"use client";
+
+import React from "react";
+import styles from "@/styles/components/AboutSection.module.css";
+import Image from 'next/image'
+
+const AboutSection: React.FC = () => {
   return (
-    <div className="main-container">
-      <div className="about flex flex-col sm:flex-row sm:justify-evenly sm:items-center w-full">
-        <div className="about-bio flex flex-col items-center justify-center max-w-[60%] w-full text-left mx-auto">
+    <>
+      <div className={styles.about}>
+        <div className={styles.aboutBio}>
           <h1 className="text-3xl font-bold mb-4">About</h1>
-          <section className="section animate mb-4">
+          <section className="section animate ">
             <p>
               鵠沼海岸エリアのお店やコミュニティーに気軽にアクセスできるウェブサイト
               「KUGENUMA KAIGAN LOCAL COMMUNITY」
@@ -22,25 +28,31 @@ const AboutSection = () => {
               the vibrant shops, services, and people that make this beachside town
               special. Since 2020, the Miller Family has been dedicated to showcasing
               the beauty and charm of Kugenuma Kaigan.
-              "Our goal is to help more people discover, explore, and fall in love with
-              this incredible town."
+              &quot; Our goal is to help more people discover, explore, and fall in love with
+              this incredible town.&quot;
               Built with love and passion, this platform provides easy access to
-              everything Kugenuma Kaigan has to offer, creating unforgettable experiences for visitors and locals alike.
+              everything Kugenuma Kaigan has to offer, creating unforgettable experiences
+              for visitors and locals alike.
             </p>
           </section>
         </div>
         <section className="section animate">
-          <div className="about-profile">
-            <img id="about-img" src="./images/about_img.jpg" alt="about-img" className="w-[400px] filter grayscale-[50%]" />
+          <div className={styles.aboutProfile}>
+          <Image
+            src="/images/about_img.jpg"
+            alt="about-img"
+            width={400}    // Intrinsic width
+            height={300}   // Intrinsic height
+            sizes="(max-width: 768px) 300px, 400px"
+            className={styles.aboutImg}
+          />
           </div>
         </section>
       </div>
       <section className="section animate">
-        <div className="kklc-vendor-map">
-          <h3 className="font-bold">Kugenuma Kaigan Main Street</h3>
-        </div>
+          <h3 className="font-bold m-2">Kugenuma Kaigan Main Street</h3>
       </section>
-    </div>
+    </>
   );
 };
 

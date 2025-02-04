@@ -1,0 +1,67 @@
+/* AboutSection.module.css */
+
+/* Container for the about section */
+.about {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 3%;
+}
+
+/* Container for the about bio text */
+.aboutBio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
+  width: 100%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+/* Container for the profile image (if you need styling) */
+.aboutProfile {
+  /* Add any desired styling here */
+}
+
+/* Image styling */
+.aboutImg {
+  width: 400px;
+  filter: grayscale(50%);
+}
+
+/* Responsive adjustments for tablets */
+@media only screen and (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+  .aboutImg {
+    width: 300px;
+  }
+  .aboutBio {
+    max-width: 60%;
+    width: 100%;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media only screen and (max-width: 480px) {
+  .about {
+    flex-direction: column;
+  }
+  .aboutImg {
+    width: 300px;
+  }
+  .aboutBio {
+    max-width: 80%;
+    width: 100%;
+  }
+}
+
+/* A utility for tagline if needed */
+.homeTagline {
+  max-width: 80%;
+  width: 100%;
+}

@@ -147,7 +147,7 @@ export const businessesData: Business[] = [
     id: 7,
     name: "Restaurant NORI et NOJI",
     image: "/images/temp_store_img.jpg",
-    ownerImage: "./images/example_img2.jpg",
+    ownerImage: "/images/example_img2.jpg",
     phone: "050-5890-0419",
     address: "N/A",
     email: "N/A",

@@ -1,0 +1,15 @@
+.notFound {
+  text-align: center;
+  padding: 2rem;
+}
+
+.standardMember {
+  padding: 2rem;
+  text-align: center;
+}
+
+.unknownMember {
+  padding: 2rem;
+  text-align: center;
+  color: red;
+}

@@ -1,25 +1,22 @@
-// pages/restaurants.tsx
 "use client";
 
 import React from "react";
-
-import MemberCards from "@/components/MemberCard"; // This component should accept an "industry" prop for filtering
-import SeoMeta from '@/components/SeoMeta';
-
+import MemberCards from "@/components/MemberCards"; // Correct import (plural)
+import SeoMeta from "@/components/SeoMeta";
 
 const ShopsPage: React.FC = () => {
   return (
     <>
-    <SeoMeta pageKey="shops" />
+      <SeoMeta pageKey="shops" />
       <header className="text-center py-6">
-        <h1 className="text-3xl font-bold">KKLC Explore - Restaurant Directory</h1>
+        <h1 className="text-3xl font-bold">KKLC Explore - Shops Directory</h1>
         <p className="mt-2">
-          Explore the finest restaurants in Kugenuma Kaigan, offering a variety of cuisines and experiences.
+          Discover the best shops in Kugenuma Kaigan, including unique boutiques, vintage stores, and specialty shops.
         </p>
       </header>
       <main className="main-container">
-        {/* Render member cards filtered by the "restaurants" industry */}
-        <MemberCards industry="restaurants" />
+        {/* Render member cards filtered by the "shops" industry */}
+        <MemberCards industry="shops" />
       </main>
     </>
   );

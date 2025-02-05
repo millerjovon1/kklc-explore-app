@@ -1,7 +1,52 @@
+export interface StoreAmenities {
+  wifiAvailable?: boolean;
+  reservationsAccepted?: boolean;
+  parkingAvailable?: boolean;
+  deliveryAvailable?: boolean;
+  petFriendly?: boolean;
+  paymentOptions?: string[];  // Credit Card, Cash, Mobile Payments, etc.
+}
+
+export interface MenuItem {
+  name: string;
+  price: string;
+  description?: string;  // Optional short description
+}
+
+export interface Promotion {
+  title: string;
+  description: string;
+  link?: string;  // Optional link to promotion details
+}
+
+export interface ThemeOptions {
+  primaryColor?: string;  // Hex or color name for buttons, links, etc.
+  secondaryColor?: string;
+  textColor?: string;
+}
+
+export interface CustomBanner {
+  imageUrl: string;   // URL of the banner image
+  title?: string;     // Optional custom banner title
+  subtitle?: string;  // Optional custom banner subtitle
+}
+
+export interface CustomFooter {
+  text: string;          // Footer text content
+  contactEmail?: string; // Contact email in the footer
+  sponsor?: string;      // Sponsor name (if any)
+}
+
+export interface GoogleMap {
+  embedUrl: string;       // Embed link to the map
+  placeName?: string;     // Optional place name to display alongside the map
+}
+
 export interface Business {
   id: number;
   name: string;
-  image: string;
+  image: string;               // Profile/store image
+  customBanner?: CustomBanner; // Custom banner section data
   ownerImage: string;
   phone: string;
   address: string;
@@ -23,6 +68,13 @@ export interface Business {
     twitter?: string | null;
     line?: string | null;
   };
+  tags?: string[];                  // Unique selling points or business highlights
+  storeAmenities?: StoreAmenities;  // Amenities offered by the business
+  menuItems?: MenuItem[];           // Featured menu items (for restaurants, shops, etc.)
+  promotions?: Promotion[];         // Active promotions
+  themeOptions?: ThemeOptions;      // Custom theme options
+  customFooter?: CustomFooter;      // Footer customization options
+  googleMap?: GoogleMap;            // Google Map embed options
 }
 
 export const businessesData: Business[] = [
@@ -45,25 +97,51 @@ export const businessesData: Business[] = [
       instagram: "https://www.instagram.com/greenheartplace",
     },
   },
-  {
-    id: 2,
-    name: "Better Together Coffee",
-    image: "/images/bettertogethercoffee_store_img.jpg",
-    ownerImage: "/images/bettertogethercoffee_owner_img.jpg",
-    phone: " ",
-    address: "https://maps.app.goo.gl/TgH6qodvKKkSEfun8",
-    email: "bettertogethercoffee23@gmail.com",
-    hours: [{ day: "Wednesday-Sunday", time: "8:00am - 17:00pm" }],
-    owner: "Momoka Yamazaki, Namika Isigure",
-    description: `Better Together Coffee + something = ☺ Bringing better moments together with Melbourne-style coffee and gluten-free treats!`,
-    website: "http://www.bettertogethercoffee.store",
-    membershipLevel: "plus",
-    industry: "restaurants",
-    subcategory: "Coffee Shop",
-    socials: {
-      instagram: "https://www.instagram.com/bettertogether_coffee/?hl=en",
+    {
+      id: 2,
+      name: "Better Together Coffee",
+      image: "/images/bettertogethercoffee_store_img.jpg",
+      ownerImage: "/images/bettertogethercoffee_owner_img.jpg",
+      phone: "0466-123-4567",
+      address: "https://maps.app.goo.gl/TgH6qodvKKkSEfun8",
+      email: "bettertogethercoffee23@gmail.com",
+      hours: [{ day: "Wednesday-Sunday", time: "8:00am - 17:00pm" }],
+      owner: "Momoka Yamazaki, Namika Isigure",
+      description: `Melbourne-style coffee and gluten-free treats.`,
+      website: "http://www.bettertogethercoffee.store",
+      membershipLevel: "plus",
+      industry: "restaurants",
+      subcategory: "Coffee Shop",
+      socials: {
+        instagram: "https://www.instagram.com/bettertogether_coffee/?hl=en",
+      },
+      tags: ["Family-Owned", "Gluten-Free Options", "Pet-Friendly"],
+      storeAmenities: {
+        wifiAvailable: true,
+        reservationsAccepted: false,
+        parkingAvailable: true,
+        deliveryAvailable: true,
+        petFriendly: true,
+        paymentOptions: ["Credit Card", "Mobile Payment"],
+      },
+      menuItems: [
+        { name: "Latte", price: "¥500", description: "Rich, creamy latte" },
+        { name: "Avocado Toast", price: "¥800", description: "Sourdough bread topped with avocado" },
+      ],
+      googleMap: {
+        embedUrl:
+          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.3516154066124!2d139.46763411630155!3d35.32071718032112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60184762e4b4a527%3A0xd3b7322bbdbb0c9d!2sKugenuma%20Kaigan!5e0!3m2!1sen!2sjp!4v1693143901234!5m2!1sen!2sjp",
+        placeName: "Better Together Coffee - Kugenuma Kaigan",
+      },
+      customBanner: {
+        imageUrl: "/images/better_together_banner_img.jpg",
+        title: "Welcome to Better Together Coffee",
+        subtitle: "Your local spot for Melbourne-style coffee in Kugenuma Kaigan!",
+      },
     },
-  },
+
+
+
   {
     id: 3,
     name: "We Eat Wheat 鵠沼海岸",
@@ -1081,7 +1159,7 @@ export const businessesData: Business[] = [
   id: 48,
   name: "Hiromasa Ryobuchi",
   image: "/images/hiro_store_img.jpg",
-  ownerImage: "/images/example_img2.jpg ",
+  ownerImage: "/images/example_img2.jpg",
   phone: " ",
   address:"https://maps.app.goo.gl/sZAJQJ24UrBdJMZZ6",
   email:"ryobuchi@lets-toho.com",

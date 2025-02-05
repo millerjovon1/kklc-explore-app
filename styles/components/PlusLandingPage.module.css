@@ -1,0 +1,31 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.business-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.menu, .promotions, .amenities, .map-section {
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.footer {
+  background-color: #264653;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}

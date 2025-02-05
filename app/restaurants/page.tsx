@@ -1,25 +1,25 @@
 "use client";
 
 import React from "react";
-import MemberCards from "@/components/MemberCard"; // This component should accept an "industry" prop for filtering
-import SeoMeta from '@/components/SeoMeta';
+import MemberCards from "@/components/MemberCards"; // Correct import (plural)
+import SeoMeta from "@/components/SeoMeta";
 
-const HealthBeautyPage: React.FC = () => {
+const RestaurantsPage: React.FC = () => {
   return (
     <>
-      <SeoMeta pageKey="health_beauty" />
+      <SeoMeta pageKey="restaurants" />
       <header className="text-center py-6">
-        <h1 className="text-3xl font-bold">KKLC Explore - Health & Beauty Directory</h1>
+        <h1 className="text-3xl font-bold">KKLC Explore - Restaurant Directory</h1>
         <p className="mt-2">
-          Discover spas, salons, and wellness centers in Kugenuma Kaigan to elevate your well-being.
+          Explore the finest restaurants in Kugenuma Kaigan, offering a variety of cuisines and experiences.
         </p>
       </header>
       <main className="main-container">
-        {/* Render member cards filtered by the "health & beauty" industry */}
-        <MemberCards industry="health & beauty" />
+        {/* Render all restaurants using the plural MemberCards component */}
+        <MemberCards industry="restaurants" />
       </main>
     </>
   );
 };
 
-export default HealthBeautyPage;
+export default RestaurantsPage;

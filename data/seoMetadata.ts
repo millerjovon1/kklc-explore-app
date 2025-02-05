@@ -31,7 +31,6 @@ const seoMetadata = {
     },
     canonical: "https://kklcexplore.com/business-details",
   },
-
   restaurants: {
     title: "KKLC Explore - Restaurant Directory | Best Restaurants in Kugenuma Kaigan",
     description:
@@ -106,6 +105,36 @@ const seoMetadata = {
       url: "https://kklcexplore.com/other",
     },
     canonical: "https://kklcexplore.com/other",
+  },
+  plusBusinessDetails: {
+    title: "KKLC Explore - Plus Business Details | Discover Unique Plus Members",
+    description:
+      "Explore detailed information about Plus member businesses in Kugenuma Kaigan. Learn about their essential services and offerings.",
+    keywords:
+      "plus member, business details, Kugenuma Kaigan, essential services, unique businesses, Plus membership",
+    openGraph: {
+      title: "KKLC Explore - Plus Business Details",
+      description:
+        "Discover unique Plus member businesses in Kugenuma Kaigan with essential services and offerings.",
+      image: "https://kklcexplore.com/plus_meta_img.jpg",
+      url: "https://kklcexplore.com/plus-business-details",
+    },
+    canonical: "https://kklcexplore.com/plus-business-details",
+  },
+  premiumBusinessDetails: {
+    title: "KKLC Explore - Premium Business Details | Discover Exclusive Premium Members",
+    description:
+      "Explore detailed information about Premium member businesses in Kugenuma Kaigan. Learn about their exclusive services and top-tier offerings.",
+    keywords:
+      "premium member, exclusive businesses, business details, Kugenuma Kaigan, top-tier services, premium membership",
+    openGraph: {
+      title: "KKLC Explore - Premium Business Details",
+      description:
+        "Discover exclusive Premium member businesses in Kugenuma Kaigan with top-tier services and exceptional offerings.",
+      image: "https://kklcexplore.com/premium_meta_img.jpg",
+      url: "https://kklcexplore.com/premium-business-details",
+    },
+    canonical: "https://kklcexplore.com/premium-business-details",
   },
 };
 

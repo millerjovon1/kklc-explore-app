@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import SeoMeta from "@/components/SeoMeta";
 import { businessesData, Business } from "@/data/businessesData";
 import MemberCard from "@/components/MemberCard";
-import PlusLandingPage from "@/components/PlusLandingPage";
+import PlusLandingPage from "@/app/plus-landing-page/page";
 import PremiumLandingPage from "@/components/PremiumLandingPage";
 import styles from "@/styles/components/BusinessDetailsPage.module.css";
 

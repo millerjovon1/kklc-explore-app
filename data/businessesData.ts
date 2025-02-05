@@ -8,6 +8,7 @@ export interface StoreAmenities {
 }
 
 export interface MenuItem {
+  imageUrl: string;   // URL of the banner image
   name: string;
   price: string;
   description?: string;  // Optional short description
@@ -15,6 +16,7 @@ export interface MenuItem {
 
 export interface Promotion {
   title: string;
+  imageUrl?: string;  // Using imageUrl instead of image
   description: string;
   link?: string;  // Optional link to promotion details
 }
@@ -127,6 +129,7 @@ export const businessesData: Business[] = [
       menuItems: [
         { name: "Latte", price: "¥500", description: "Rich, creamy latte" },
         { name: "Avocado Toast", price: "¥800", description: "Sourdough bread topped with avocado" },
+        image:"/images/bettertogethermenu_img.jpg"
       ],
       googleMap: {
         embedUrl:
@@ -138,6 +141,15 @@ export const businessesData: Business[] = [
         title: "Welcome to Better Together Coffee",
         subtitle: "Your local spot for Melbourne-style coffee in Kugenuma Kaigan!",
       },
+      promotions: [
+        {
+          title: "New T-Shirt",
+          imageUrl:"images/bettertogether_promotions_img.jpg",
+          description: "We now have t-shirts! They are Amazing",
+          link: "http://www.bettertogethercoffee.store/store",
+        }
+      ]
+
     },
 
 

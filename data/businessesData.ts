@@ -1,3 +1,11 @@
+export interface AboutSection {
+  wifiAvailable?: boolean;
+  reservationsAccepted?: boolean;
+  parkingAvailable?: boolean;
+  deliveryAvailable?: boolean;
+  petFriendly?: boolean;
+  paymentOptions?: string[];  // Credit Card, Cash, Mobile Payments, etc.
+}
 export interface StoreAmenities {
   wifiAvailable?: boolean;
   reservationsAccepted?: boolean;
@@ -8,7 +16,6 @@ export interface StoreAmenities {
 }
 
 export interface MenuItem {
-  imageUrl: string;   // URL of the banner image
   name: string;
   price: string;
   description?: string;  // Optional short description
@@ -48,7 +55,9 @@ export interface Business {
   id: number;
   name: string;
   image: string;               // Profile/store image
-  customBanner?: CustomBanner; // Custom banner section data
+  customBanner?: CustomBanner;
+  aboutSectionImage?: string;  // New field for about section image
+  // Custom banner section data
   ownerImage: string;
   phone: string;
   address: string;
@@ -72,7 +81,9 @@ export interface Business {
   };
   tags?: string[];                  // Unique selling points or business highlights
   storeAmenities?: StoreAmenities;  // Amenities offered by the business
-  menuItems?: MenuItem[];           // Featured menu items (for restaurants, shops, etc.)
+  menuItems?: MenuItem[];
+  menuSectionImage?: string;  // New field for the section image
+  // Featured menu items (for restaurants, shops, etc.)
   promotions?: Promotion[];         // Active promotions
   themeOptions?: ThemeOptions;      // Custom theme options
   customFooter?: CustomFooter;      // Footer customization options
@@ -110,6 +121,7 @@ export const businessesData: Business[] = [
       hours: [{ day: "Wednesday-Sunday", time: "8:00am - 17:00pm" }],
       owner: "Momoka Yamazaki, Namika Isigure",
       description: `Melbourne-style coffee and gluten-free treats.`,
+      aboutSectionImage:"/images/bettertogethercoffee_owner_img.jpg",
       website: "http://www.bettertogethercoffee.store",
       membershipLevel: "plus",
       industry: "restaurants",
@@ -126,25 +138,26 @@ export const businessesData: Business[] = [
         petFriendly: true,
         paymentOptions: ["Credit Card", "Mobile Payment"],
       },
+      menuSectionImage: "/images/bettertogethercoffee_menu_img.jpg",
       menuItems: [
-        { name: "Latte", price: "¥500", description: "Rich, creamy latte" },
-        { name: "Avocado Toast", price: "¥800", description: "Sourdough bread topped with avocado" },
-        image:"/images/bettertogethermenu_img.jpg"
-      ],
+      { name: "Latte", price: "¥500", description: "Rich, creamy latte" },
+      { name: "Avocado Toast", price: "¥800", description: "Sourdough bread topped with avocado" }],
+
+
       googleMap: {
         embedUrl:
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.3516154066124!2d139.46763411630155!3d35.32071718032112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60184762e4b4a527%3A0xd3b7322bbdbb0c9d!2sKugenuma%20Kaigan!5e0!3m2!1sen!2sjp!4v1693143901234!5m2!1sen!2sjp",
         placeName: "Better Together Coffee - Kugenuma Kaigan",
       },
       customBanner: {
-        imageUrl: "/images/better_together_banner_img.jpg",
+        imageUrl: "/images/bettertogethercoffee_banner_img.jpg",
         title: "Welcome to Better Together Coffee",
         subtitle: "Your local spot for Melbourne-style coffee in Kugenuma Kaigan!",
       },
       promotions: [
         {
           title: "New T-Shirt",
-          imageUrl:"images/bettertogether_promotions_img.jpg",
+          imageUrl:"/images/bettertogethercoffee_promotions_img.jpg",
           description: "We now have t-shirts! They are Amazing",
           link: "http://www.bettertogethercoffee.store/store",
         }

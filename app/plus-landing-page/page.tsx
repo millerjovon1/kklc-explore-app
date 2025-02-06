@@ -8,6 +8,8 @@ import MapSection from "@/components/PlusLandingPage/MapSection";
 import styles from "@/styles/components/PlusLandingPage.module.css";
 import AboutSection from "@/components/PlusLandingPage/AboutSection";
 import AmenitiesSection from "@/components/PlusLandingPage/AmenetiesSection";
+import CustomBanner from "@/components/PlusLandingPage/CustomBanner";
+import PlusMembershipBadge from "@/components/PlusLandingPage/PlusMembershipBadge";
 
 interface PlusLandingPageProps {
   business: Business;
@@ -23,26 +25,33 @@ const PlusLandingPage: React.FC<PlusLandingPageProps> = ({ business }) => {
           description: business.description,
         }}
       />
+
+      {/* Replaced inline banner with imported component */}
+      <PlusMembershipBadge isPlusAccount={business.membershipLevel === "plus"} />
+
       {business.customBanner && (
-        <div
-          className={styles.banner}
-          style={{
-            backgroundImage: `linear-gradient(to bottom,rgb(158 135 45 / 68%), rgb(0 0 0 / 82%)),
-            url(${business.customBanner.imageUrl})`,
-            opacity: 0.8,
-          }}
-        >
-          <h1>{business.customBanner.title || business.name}</h1>
-          <p>{business.customBanner.subtitle}</p>
-        </div>
+        <CustomBanner
+          imageUrl={business.customBanner.imageUrl}
+          title={business.customBanner.title || business.name}
+          subtitle={business.customBanner.subtitle}
+        />
       )}
+
       <div className={styles.mainContainer}>
-        <AboutSection name={business.name} description={business.description} />
+        <AboutSection
+          name={business.name}
+          description={business.description}
+          aboutSectionImage={business.aboutSectionImage}
+        />
         <ContactSection phone={business.phone} email={business.email} website={business.website} name={business.name} />
         {business.storeAmenities && <AmenitiesSection amenities={business.storeAmenities} />}
-        {business.menuItems && <MenuSection menuItems={business.menuItems} />}
+        {business.menuItems && (
+          <MenuSection menuItems={business.menuItems} menuSectionImage={business.menuSectionImage} />
+        )}
         {business.promotions && <PromotionsSection promotions={business.promotions} />}
-        {business.googleMap && <MapSection embedUrl={business.googleMap.embedUrl} placeName={business.googleMap.placeName} />}
+        {business.googleMap && (
+          <MapSection embedUrl={business.googleMap.embedUrl} placeName={business.googleMap.placeName} />
+        )}
       </div>
     </div>
   );

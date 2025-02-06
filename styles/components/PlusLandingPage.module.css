@@ -178,3 +178,20 @@
   font-size: 1rem;
   margin: 0.5rem 0;
 }
+/* PlusMembershipBadge.module.css */
+.badgeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Spacing between the icon and text */
+  color: #facc15; /* Gold/Yellow equivalent: Tailwind's text-yellow-500 */
+  margin-bottom: 1rem; /* Bottom spacing */
+}
+
+.icon {
+  font-size: 1.875rem; /* Matches Tailwind's text-3xl */
+}
+
+.text {
+  font-size: 1.25rem; /* Matches Tailwind's text-xl */
+  font-weight: 600; /* Matches Tailwind's font-semibold */
+}

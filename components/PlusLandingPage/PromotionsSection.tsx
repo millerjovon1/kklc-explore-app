@@ -9,40 +9,36 @@ interface PromotionsSectionProps {
 
 const PromotionsSection: React.FC<PromotionsSectionProps> = ({ promotions }) => {
   return (
-    <section className={`${styles.promotionsSection} p-6`}>
-      <h2 className="text-3xl font-bold mb-6">Current Promotions</h2>
-
-      <ul className="space-y-8">
+    <section className={styles.promotionsSection}>
+      <h2 className={styles.sectionTitle}>Current Promotions</h2>
+      <div className={styles.promotionsContainer}>
         {promotions.map((promo, index) => (
-          <li key={index} className="border-b pb-4">
-            {promo.imageUrl && (
-              <div className="relative w-full max-w-[400px] h-[250px] mb-4 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src={promo.imageUrl}
-                  alt={promo.title}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-            )}
-            <h3 className="text-xl font-semibold">{promo.title}</h3>
-            <p className="text-gray-700 leading-relaxed">{promo.description}</p>
-
+          <div key={index} className={styles.promotionItem}>
+            {promo.images.map((image, imgIndex) => (
+              <Image
+                key={imgIndex}
+                src={image}
+                alt={`Promotion ${promo.title} - Image ${imgIndex + 1}`}
+                width={400}
+                height={250}
+                className={styles.promotionImage}
+              />
+            ))}
+            <strong className={styles.promotionTitle}>{promo.title}</strong>
+            <p className={styles.promotionDescription}>{promo.description}</p>
             {promo.link && (
-              <p>
-                <a
-                  href={promo.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline"
-                >
-                  Learn More
-                </a>
-              </p>
+              <a
+                href={promo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.promotionLink}
+              >
+                Learn More
+              </a>
             )}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 };

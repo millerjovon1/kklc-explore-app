@@ -38,6 +38,7 @@
   padding: 2rem;
   background-color: #f7fafc;
   border-radius: 8px;
+  display: flex;
 }
 
 .aboutSection h2 {
@@ -54,9 +55,10 @@
 /* Contact Section */
 .contactSection {
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: rgba(18, 17, 17, 0.91);
   border: 1px solid #e2e8f0;
   border-radius: 8px;
+  color:white;
 }
 
 .contactSection h2 {
@@ -72,7 +74,7 @@
 /* Store Amenities Section */
 .amenitiesSection {
   padding: 2rem;
-  background-color: #f0f4f8;
+  background-color: #89c4ff;
   border-radius: 8px;
 }
 
@@ -121,30 +123,63 @@
 
 /* Promotions Section */
 .promotionsSection {
-  padding: 2rem;
-  background-color: #f7fafc;
-  border-radius: 8px;
+  padding: 20px;
 }
 
-.promotionsSection h2 {
+.sectionTitle {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.promotionsSection ul {
-  padding-left: 1.5rem;
+.promotionsContainer {
+  display: flex;
+  gap: 20px;
 }
 
-.promotionsSection li {
+.promotionItem {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promotionImage {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.promotionTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.promotionDescription {
   font-size: 1rem;
-  color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
-.promotionsSection a {
-  color: #007bff;
+.promotionLink {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.promotionLink:hover {
   text-decoration: underline;
 }
+/* Google Reviews Section */
+.googleReviewsSection {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.googleReviewsSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+
 
 /* Google Map Section */
 .mapSection {

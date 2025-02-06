@@ -4,13 +4,13 @@ import React from "react";
 import { businessesData, Business } from "@/data/businessesData";
 import MemberCard from "./MemberCard";
 import styles from "@/styles/components/MemberCard.module.css";
+import Link from "next/link";
 
 interface MemberCardsProps {
   industry: string;
 }
 
 const MemberCards: React.FC<MemberCardsProps> = ({ industry }) => {
-  // Filter businesses by the provided industry (case-insensitive)
   const filteredBusinesses: Business[] = businessesData.filter(
     (business) => business.industry.toLowerCase() === industry.toLowerCase()
   );
@@ -25,9 +25,16 @@ const MemberCards: React.FC<MemberCardsProps> = ({ industry }) => {
 
   return (
     <div className={styles.cardsWrapper}>
-      {filteredBusinesses.map((business) => (
-        <MemberCard key={business.id} business={business} />
-      ))}
+      {filteredBusinesses.map((business) => {
+        const linkDestination = `/business-details/${business.id}`;
+        return (
+          <Link key={business.id} href={linkDestination} passHref legacyBehavior>
+            <div className={`${styles.cardContainer} group cursor-pointer`}>
+              <MemberCard business={business} />
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 };

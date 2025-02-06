@@ -4,12 +4,12 @@ import { Business } from "@/data/businessesData";
 import ContactSection from "@/components/PlusLandingPage/ContactSection";
 import MenuSection from "@/components/PlusLandingPage/MenuSection";
 import PromotionsSection from "@/components/PlusLandingPage/PromotionsSection";
-import MapSection from "@/components/PlusLandingPage/MapSection";
 import styles from "@/styles/components/PlusLandingPage.module.css";
 import AboutSection from "@/components/PlusLandingPage/AboutSection";
 import AmenitiesSection from "@/components/PlusLandingPage/AmenetiesSection";
 import CustomBanner from "@/components/PlusLandingPage/CustomBanner";
 import PlusMembershipBadge from "@/components/PlusLandingPage/PlusMembershipBadge";
+
 
 interface PlusLandingPageProps {
   business: Business;
@@ -26,9 +26,12 @@ const PlusLandingPage: React.FC<PlusLandingPageProps> = ({ business }) => {
         }}
       />
 
-      {/* Replaced inline banner with imported component */}
-      <PlusMembershipBadge isPlusAccount={business.membershipLevel === "plus"} />
+      {/* Plus Badge */}
+      <div className={styles.header}>
+        <PlusMembershipBadge isPlusAccount={business.membershipLevel === "plus"} />
+      </div>
 
+      {/* Custom Banner Section */}
       {business.customBanner && (
         <CustomBanner
           imageUrl={business.customBanner.imageUrl}
@@ -38,19 +41,40 @@ const PlusLandingPage: React.FC<PlusLandingPageProps> = ({ business }) => {
       )}
 
       <div className={styles.mainContainer}>
+        {/* About Section */}
         <AboutSection
           name={business.name}
           description={business.description}
+          aboutText={business.aboutText}
           aboutSectionImage={business.aboutSectionImage}
         />
-        <ContactSection phone={business.phone} email={business.email} website={business.website} name={business.name} />
-        {business.storeAmenities && <AmenitiesSection amenities={business.storeAmenities} />}
+
+        {/* Menu Section */}
         {business.menuItems && (
-          <MenuSection menuItems={business.menuItems} menuSectionImage={business.menuSectionImage} />
+          <MenuSection
+            menuItems={business.menuItems}
+            menuSectionImage={business.menuSectionImage}
+            logoImage={business.logoImage}
+          />
         )}
+
+        {/* Promotions Section */}
         {business.promotions && <PromotionsSection promotions={business.promotions} />}
+
+        {/* Store Amenities Section */}
+        {business.storeAmenities && <AmenitiesSection amenities={business.storeAmenities} />}
+
+        {/* Contact Section (with integrated MapSection) */}
         {business.googleMap && (
-          <MapSection embedUrl={business.googleMap.embedUrl} placeName={business.googleMap.placeName} />
+          <ContactSection
+            phone={business.phone}
+            email={business.email}
+            website={business.website}
+            name={business.name}
+            socials={business.socials}
+            mapEmbedUrl={business.googleMap?.embedUrl}
+            placeName={business.googleMap?.placeName}
+          />
         )}
       </div>
     </div>

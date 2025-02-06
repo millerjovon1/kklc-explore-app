@@ -3,24 +3,37 @@ import styles from '@/styles/components/PlusLandingPage.module.css';
 
 interface AboutSectionProps {
   name: string;
-  description: string;
+  description?: string;  // Optional short description
+  aboutText?: string;  // Longer text about the business
   aboutSectionImage?: string;  // Accept the optional image
 }
 
-const AboutSection: React.FC<AboutSectionProps> = ({ name, description, aboutSectionImage }) => (
-  <section className={styles.aboutSection}>
-    <h3 className="text-2xl flex font-semibold mb-4">About </h3><span>{name}</span>
-    {aboutSectionImage && (
-      <div className="relative w-[400px] h-[300px] mb-4 rounded-lg overflow-hidden shadow-md">
-        <Image
-          src={aboutSectionImage}
-          alt={`${name} About Section`}
-          layout="fill"
-          objectFit="cover"
-        />
+const AboutSection: React.FC<AboutSectionProps> = ({ name, description, aboutText, aboutSectionImage }) => (
+  <section className={`${styles.aboutSection} p-8 bg-gray-50 rounded-lg shadow-md`}>
+    <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+      {/* Text Section */}
+      <div className="flex-1">
+        <h3 className="text-3xl font-bold mb-4">
+          About <span className="text-indigo-600">{name}</span>
+        </h3>
+
+        {description && <p className="text-gray-600 text-lg mb-3">{description}</p>}
+
+        {aboutText && <p className="text-gray-700 text-lg leading-relaxed">{aboutText}</p>}
       </div>
-    )}
-    <p className="text-gray-700 leading-relaxed">{description}</p>
+
+      {/* Image Section */}
+      {aboutSectionImage && (
+        <div className="flex-1 relative w-full md:w-[400px] h-[300px] rounded-lg overflow-hidden shadow-md">
+          <Image
+            src={aboutSectionImage}
+            alt={`${name} About Section`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      )}
+    </div>
   </section>
 );
 

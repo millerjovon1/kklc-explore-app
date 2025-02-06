@@ -23,7 +23,7 @@ export interface MenuItem {
 
 export interface Promotion {
   title: string;
-  imageUrl?: string;  // Using imageUrl instead of image
+  images: string[];  // Array of image URLs instead of a single imageUrl
   description: string;
   link?: string;  // Optional link to promotion details
 }
@@ -57,6 +57,9 @@ export interface Business {
   image: string;               // Profile/store image
   customBanner?: CustomBanner;
   aboutSectionImage?: string;  // New field for about section image
+  logoImage?:string;
+  aboutText?: string;  // New field for the detailed about section text
+
   // Custom banner section data
   ownerImage: string;
   phone: string;
@@ -122,6 +125,15 @@ export const businessesData: Business[] = [
       owner: "Momoka Yamazaki, Namika Isigure",
       description: `Melbourne-style coffee and gluten-free treats.`,
       aboutSectionImage:"/images/bettertogethercoffee_owner_img.jpg",
+      aboutText: `Better Together Coffee, founded by
+                   Momoka Yamazaki and Namika Isigure, brings the spirit of
+                   Melbourne-style coffee to the heart of Kugenuma Kaigan. Our café is a
+                   haven for coffee lovers and those seeking gluten-free treats, offering
+                   hand-selected beans brewed to perfection. With an emphasis on community,
+                   sustainability, and quality, we invite you to experience a warm, inviting
+                   atmosphere where every cup tells a story. Whether you’re stopping by for a quick
+                   latte or spending a quiet afternoon with friends, we aim to make each visit memorable.`,
+
       website: "http://www.bettertogethercoffee.store",
       membershipLevel: "plus",
       industry: "restaurants",
@@ -130,6 +142,7 @@ export const businessesData: Business[] = [
         instagram: "https://www.instagram.com/bettertogether_coffee/?hl=en",
       },
       tags: ["Family-Owned", "Gluten-Free Options", "Pet-Friendly"],
+      logoImage:"/images/bettertogethercoffee_logo_img.jpg",
       storeAmenities: {
         wifiAvailable: true,
         reservationsAccepted: false,
@@ -148,6 +161,8 @@ export const businessesData: Business[] = [
         embedUrl:
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.3516154066124!2d139.46763411630155!3d35.32071718032112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60184762e4b4a527%3A0xd3b7322bbdbb0c9d!2sKugenuma%20Kaigan!5e0!3m2!1sen!2sjp!4v1693143901234!5m2!1sen!2sjp",
         placeName: "Better Together Coffee - Kugenuma Kaigan",
+
+
       },
       customBanner: {
         imageUrl: "/images/bettertogethercoffee_banner_img.jpg",
@@ -157,7 +172,7 @@ export const businessesData: Business[] = [
       promotions: [
         {
           title: "New T-Shirt",
-          imageUrl:"/images/bettertogethercoffee_promotions_img.jpg",
+          images:["/images/bettertogethercoffee_promotions_img.jpg"],
           description: "We now have t-shirts! They are Amazing",
           link: "http://www.bettertogethercoffee.store/store",
         }

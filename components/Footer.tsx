@@ -48,6 +48,7 @@ const Footer: React.FC = () => {
         <div className="text-center mt-6">
           <h1 className="text-sm sm:text-lg md:text-xl">
             Powered by Green Heart Place &amp; DAS Technologies
+
           </h1>
         </div>
       </div>

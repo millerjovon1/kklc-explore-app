@@ -19,7 +19,15 @@ interface ContactSectionProps {
   placeName?: string;
 }
 
-const ContactSection: React.FC<ContactSectionProps> = ({ phone, email, website, name, socials, mapEmbedUrl, placeName }) => {
+const ContactSection: React.FC<ContactSectionProps> = ({
+  phone,
+  email,
+  website,
+  name,
+  socials,
+  mapEmbedUrl,
+  placeName,
+}) => {
   const socialIcons = [
     { platform: "instagram", icon: <FaInstagram />, url: socials?.instagram },
     { platform: "youtube", icon: <FaYoutube />, url: socials?.youtube },
@@ -29,47 +37,49 @@ const ContactSection: React.FC<ContactSectionProps> = ({ phone, email, website, 
   ];
 
   return (
-    <section className={`${styles.contactSection} flex flex-col md:flex-row gap-6 items-start`}>
-      {/* Left Side - Contact Information */}
-      <div className="w-full md:w-1/2 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-        <p><strong>Phone:</strong> {phone}</p>
-        <p><strong>Email:</strong> {email || "Not available"}</p>
-        <p>
-          <strong>Website:</strong>{" "}
-          <a href={website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-            Visit {name}
-          </a>
-        </p>
+    <section className={`${styles.contactSection} p-6 sm:p-8 rounded-lg shadow-md w-full`}>
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start w-full">
+        {/* Left Side - Contact Information */}
+        <div className="flex-1">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Contact Information</h2>
+          <p className="text-gray-700"><strong>Phone:</strong> {phone}</p>
+          <p className="text-gray-700"><strong>Email:</strong> {email || "Not available"}</p>
+          <p className="text-gray-700">
+            <strong>Website:</strong>{" "}
+            <a href={website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              Visit {name}
+            </a>
+          </p>
 
-        {/* Social Media Links Section */}
-        {socials && (
-          <div className="mt-4">
-            <h3 className="text-xl font-semibold">Connect with Us:</h3>
-            <div className="flex gap-4 mt-2">
-              {socialIcons.map(
-                (social) =>
-                  social.url && (
-                    <a
-                      key={social.platform}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-blue-600 text-2xl"
-                      aria-label={social.platform}
-                    >
-                      {social.icon}
-                    </a>
-                  )
-              )}
+          {/* Social Media Links Section */}
+          {socials && (
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold mb-2">Connect with Us:</h3>
+              <div className="flex gap-4">
+                {socialIcons.map(
+                  (social) =>
+                    social.url && (
+                      <a
+                        key={social.platform}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-500 hover:text-blue-600 text-2xl"
+                        aria-label={social.platform}
+                      >
+                        {social.icon}
+                      </a>
+                    )
+                )}
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-      {/* Right Side - Map Section */}
-      <div className="w-full md:w-1/2">
-        <MapSection embedUrl={mapEmbedUrl} placeName={placeName} />
+        {/* Right Side - Map Section */}
+        <div className="flex-1 w-full">
+          <MapSection embedUrl={mapEmbedUrl} placeName={placeName} />
+        </div>
       </div>
     </section>
   );

@@ -14,46 +14,35 @@ const SearchBar: React.FC<SearchBarProps> = ({ mode, onSuggestionClick, onType }
   const [query, setQuery] = useState('');
   const [filteredBusinesses, setFilteredBusinesses] = useState<Business[]>([]);
   const [isFocused, setIsFocused] = useState(false);
-  const router = useRouter(); // Hook for navigation
+  const router = useRouter();
 
-  // Set a cap for suggestions, e.g., 5 suggestions.
   const MAX_SUGGESTIONS = 5;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value; // preserve original case in state
+    const inputValue = e.target.value;
     setQuery(inputValue);
     const lowerInput = inputValue.toLowerCase();
 
-    // Filter businesses using startsWith (or includes) as desired.
+    // Filter businesses by name or subcategory.
     const results = businessesData.filter(
       (business) =>
-        business.name.toLowerCase().startsWith(lowerInput) ||
-        business.subcategory.toLowerCase().startsWith(lowerInput)
+        business.name.toLowerCase().includes(lowerInput) ||
+        business.subcategory.toLowerCase().includes(lowerInput)
     );
 
-    // Limit the number of suggestions.
     const limitedResults = results.slice(0, MAX_SUGGESTIONS);
     setFilteredBusinesses(limitedResults);
 
+    // Trigger filtering directly on the page if in page mode
     if (mode === 'page' && onType) {
-      onType(limitedResults);
+      onType(results);
     }
   };
 
-  // When the input gains focus, show the suggestions.
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  // When the input loses focus, delay hiding suggestions so that clicks can register.
-  const handleBlur = () => {
-    setTimeout(() => {
-      setIsFocused(false);
-    }, 200);
-  };
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setTimeout(() => setIsFocused(false), 200);
 
   const handleSuggestionClick = (businessId: number) => {
-    // If the user defined their own handler, call it; otherwise, navigate to details page.
     if (onSuggestionClick) {
       onSuggestionClick(businessId);
     } else {
@@ -73,7 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ mode, onSuggestionClick, onType }
         placeholder="Search by name or subcategory..."
         autoComplete="off"
       />
-      {isFocused && query.trim().length > 0 && filteredBusinesses.length > 0 && (
+      {isFocused && query.trim().length > 0 && filteredBusinesses.length > 0 && mode === 'home' && (
         <ul className="absolute top-12 left-1/2 text-left transform -translate-x-1/2 w-full max-w-md bg-white border border-gray-300 rounded-md shadow-md z-10 text-black">
           {filteredBusinesses.map((business) => (
             <li

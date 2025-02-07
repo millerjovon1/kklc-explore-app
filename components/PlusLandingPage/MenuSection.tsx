@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuItem } from "@/data/businessesData";
-import Image from 'next/image';
+import Image from "next/image";
 import styles from "@/styles/components/PlusLandingPage.module.css";
 
 interface MenuSectionProps {
@@ -11,39 +11,41 @@ interface MenuSectionProps {
 
 const MenuSection: React.FC<MenuSectionProps> = ({ menuItems, menuSectionImage, logoImage }) => {
   return (
-    <section className={`${styles.menuSection} p-6`}>
-      <h2 className="text-3xl font-bold mb-6">Our Menu</h2>
+    <section className={`${styles.menuSection} p-6 sm:p-8 rounded-lg shadow-md`}>
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6">Our Menu</h2>
 
-      <div style={{ backgroundColor: "#f4f4f4" }}  className="flex flex-wrap lg:flex-nowrap justify-start items-end gap-6">
-        {/* Left Side: Menu Image */}
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Left Side: Menu Image and Title */}
         {menuSectionImage && (
-          <div className="flex flex-col items-center lg:items-start gap-4 lg:w-[60%]">
-          <div className="relative w-full lg:w-[60%] max-w-[500px] h-[300px] rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={menuSectionImage}
-              alt="Menu Section"
-              layout="fill"
-              objectFit="cover"
-            />
+          <div className="flex-1">
+            <div className="relative w-full h-[250px] sm:h-[300px] rounded-lg overflow-hidden shadow-md">
+              <Image
+                src={menuSectionImage}
+                alt="Menu Section"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </div>
+            <h3 className="mt-4 text-xl font-semibold text-gray-700">
+              Discover Our Special Treats!
+            </h3>
           </div>
-          <h3 className="text-xl font-semibold text-gray-700">
-          Discover Our Special Treats!
-        </h3>
-        </div>
-
         )}
 
-        {/* Right Side: Logo + Catchy Phrase */}
+        {/* Right Side: Business Logo */}
         {logoImage && (
-            <div className="relative w-[200px] h-[200px] rounded-lg overflow-hidden shadow-md">
+          <div className="flex items-center justify-center">
+            <div className="relative w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] rounded-lg overflow-hidden shadow-md">
               <Image
                 src={logoImage}
                 alt="Business Logo"
                 layout="fill"
                 objectFit="contain"
+                className="rounded-md"
               />
             </div>
-
+          </div>
         )}
       </div>
 

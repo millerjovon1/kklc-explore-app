@@ -230,3 +230,32 @@
   font-size: 1.25rem; /* Matches Tailwind's text-xl */
   font-weight: 600; /* Matches Tailwind's font-semibold */
 }
+.storeInfoSection {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.storeInfoSection h2 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.storeInfoSection p {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.storeInfoSection ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.storeInfoSection li {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}

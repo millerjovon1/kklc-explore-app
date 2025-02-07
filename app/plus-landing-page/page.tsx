@@ -4,12 +4,12 @@ import { Business } from "@/data/businessesData";
 import ContactSection from "@/components/PlusLandingPage/ContactSection";
 import MenuSection from "@/components/PlusLandingPage/MenuSection";
 import PromotionsSection from "@/components/PlusLandingPage/PromotionsSection";
+import StoreInfoSection from "@/components/PlusLandingPage/StoreInfoSection";
 import styles from "@/styles/components/PlusLandingPage.module.css";
 import AboutSection from "@/components/PlusLandingPage/AboutSection";
 import AmenitiesSection from "@/components/PlusLandingPage/AmenetiesSection";
 import CustomBanner from "@/components/PlusLandingPage/CustomBanner";
 import PlusMembershipBadge from "@/components/PlusLandingPage/PlusMembershipBadge";
-
 
 interface PlusLandingPageProps {
   business: Business;
@@ -17,7 +17,7 @@ interface PlusLandingPageProps {
 
 const PlusLandingPage: React.FC<PlusLandingPageProps> = ({ business }) => {
   return (
-    <div className={styles.plusLanding}>
+    <div className={`${styles.plusLanding} main-container`}>
       <SeoMeta
         pageKey="plusBusinessDetails"
         customMeta={{
@@ -27,45 +27,68 @@ const PlusLandingPage: React.FC<PlusLandingPageProps> = ({ business }) => {
       />
 
       {/* Plus Badge */}
-      <div className={styles.header}>
+      <div className={`w-full text-center my-4 ${styles.badgeContainer}`}>
         <PlusMembershipBadge isPlusAccount={business.membershipLevel === "plus"} />
       </div>
 
       {/* Custom Banner Section */}
       {business.customBanner && (
-        <CustomBanner
-          imageUrl={business.customBanner.imageUrl}
-          title={business.customBanner.title || business.name}
-          subtitle={business.customBanner.subtitle}
-        />
+        <div className={styles.bannerContainer}>
+          <CustomBanner
+            imageUrl={business.customBanner.imageUrl}
+            title={business.customBanner.title || business.name}
+            subtitle={business.customBanner.subtitle}
+          />
+        </div>
       )}
 
-      <div className={styles.mainContainer}>
-        {/* About Section */}
+      {/* About Section */}
+      <div className={styles.sectionWrapper}>
         <AboutSection
           name={business.name}
           description={business.description}
           aboutText={business.aboutText}
           aboutSectionImage={business.aboutSectionImage}
         />
+      </div>
 
-        {/* Menu Section */}
-        {business.menuItems && (
+      {/* Store Info Section */}
+      <div className={styles.sectionWrapper}>
+        <StoreInfoSection
+          phone={business.phone}
+          email={business.email}
+          hours={business.hours}
+        />
+      </div>
+
+      {/* Menu Section */}
+      {business.menuItems && (
+        <div className={styles.sectionWrapper}>
           <MenuSection
             menuItems={business.menuItems}
             menuSectionImage={business.menuSectionImage}
             logoImage={business.logoImage}
           />
-        )}
+        </div>
+      )}
 
-        {/* Promotions Section */}
-        {business.promotions && <PromotionsSection promotions={business.promotions} />}
+      {/* Promotions Section */}
+      {business.promotions && (
+        <div className={styles.sectionWrapper}>
+          <PromotionsSection promotions={business.promotions} />
+        </div>
+      )}
 
-        {/* Store Amenities Section */}
-        {business.storeAmenities && <AmenitiesSection amenities={business.storeAmenities} />}
+      {/* Store Amenities Section */}
+      {business.storeAmenities && (
+        <div className={styles.sectionWrapper}>
+          <AmenitiesSection amenities={business.storeAmenities} />
+        </div>
+      )}
 
-        {/* Contact Section (with integrated MapSection) */}
-        {business.googleMap && (
+      {/* Contact Section */}
+      {business.googleMap && (
+        <div className={styles.sectionWrapper}>
           <ContactSection
             phone={business.phone}
             email={business.email}
@@ -75,8 +98,8 @@ const PlusLandingPage: React.FC<PlusLandingPageProps> = ({ business }) => {
             mapEmbedUrl={business.googleMap?.embedUrl}
             placeName={business.googleMap?.placeName}
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,16 +5,19 @@ import MonthlyFeaturesGrid from "@/components/MonthlyFeatureGrid";
 import MainGrid from "@/components/MainGrid";
 import EventsSlideshow from "@/components/EventsSlideshow";
 
-
 export default function Home() {
   return (
     <main>
       <Banner />
-      <div className="main-container" >
-        <AboutSection />
-        <MainGrid/>
+      <div className="main-container">
+        <section id="about">
+          <AboutSection />
+        </section>
+        <MainGrid />
         <MonthlyFeaturesGrid />
-        <EventsSlideshow/>
+        <section id="events">
+          <EventsSlideshow />
+        </section>
       </div>
     </main>
   );
